@@ -36,6 +36,6 @@ jobs:
           server-id: github
 
       - name: Compile & Deploy to GitHub Packages
-        run: mvn -Drevision=${{ github.event.inputs.version }} -B deploy -DdeployAtEnd --file pom.xml
+        run: mvn -Drevision=${{ github.event.inputs.version }} --quiet --batch-mode deploy -DdeployAtEnd --file pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
